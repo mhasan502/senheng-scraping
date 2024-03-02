@@ -1,0 +1,28 @@
+[MASTER]
+ignore=notebook
+jobs=0
+py-version = 3.10.13
+
+[FORMAT]
+max-line-length=120
+indent-string='    '
+
+
+[STRING]
+check-quote-consistency=yes
+
+
+[REPORTS]
+output-format=colorized
+logging-modules=logging
+
+
+[MESSAGES CONTROL]
+disable=
+    missing-docstring,
+    too-few-public-methods,
+    too-many-instance-attributes,
+    unnecessary-lambda,
+    invalid-name,
+    simplifiable-if-expression,
+	import-error

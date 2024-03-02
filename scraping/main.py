@@ -16,16 +16,16 @@ def parse_product_list(category_: str) -> list:
     WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.CLASS_NAME, 'jss113')))
     last_height = driver.execute_script('return document.body.scrollHeight')
 
-    # while True:
-    #     driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
-    #     try:
-    #         WebDriverWait(driver, 3).until(
-    #             lambda x: x.execute_script(f'return document.body.scrollHeight > {last_height}')
-    #         )
-    #
-    #         last_height = driver.execute_script('return document.body.scrollHeight')
-    #     except selenium.common.exceptions.TimeoutException:
-    #         break
+    while True:
+        driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
+        try:
+            WebDriverWait(driver, 3).until(
+                lambda x: x.execute_script(f'return document.body.scrollHeight > {last_height}')
+            )
+
+            last_height = driver.execute_script('return document.body.scrollHeight')
+        except selenium.common.exceptions.TimeoutException:
+            break
 
     driver.execute_script('window.scrollTo(0, 0);')
     return driver.find_elements(By.CLASS_NAME, 'jss127')
@@ -94,7 +94,7 @@ if __name__ == '__main__':
                 product_list_of_links = parse_product_list(category_=category)
 
         data_saver.save_data(file_name=category)
-        print(f"Number of malformed link in {category} is: {malformed_link}")
+        print(f'Number of malformed link in {category} is: {malformed_link}')
         malformed_link = 0
 
     driver.quit()

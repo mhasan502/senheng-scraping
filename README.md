@@ -1,4 +1,9 @@
-## This repo contains the code to scrape product information from [Senheng](https://www.senheng.com.my)
+## Scraping and Visualizing product information from [Senheng](https://www.senheng.com.my) 
+
+#### Clone the repository
+```shell
+git clone https://github.com/mhasan502/senheng-scraping
+```
 
 #### Installing dependencies
 ```shell
